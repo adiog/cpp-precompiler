@@ -4,13 +4,13 @@
 This file is a part of cpp-precompiler project.
 Copyright (c) 2016 Aleksander Gajewski <adiog@brainfuck.pl>,
 """
+import re
 import sys
 
-import re
 from antlr4 import InputStream
 
 from generated.CPP14Lexer import CPP14Lexer, CommonTokenStream
-from generated.CPP14Parser import CPP14Parser
+from generated.CPP14Parser_Customized import CPP14Parser
 from generated.CPP14Visitor import CPP14Visitor
 
 

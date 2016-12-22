@@ -23,17 +23,6 @@ function prepend_parser_import_statement()
     echo "from src.PrettyPrintParserRuleContext import PrettyPrintParserRuleContext" | cat - $TEMP > $PARSER
 }
 
-#function make_default_visitor_verbose()
-#{
-#    VISITOR=${WORKSPACE}/qsql/generated/qsqlVisitor.py
-#    VERBOSE_VISITOR=${WORKSPACE}/qsql/generated/qsqlVerboseVisitor.py
-#
-#    mv $VISITOR $VERBOSE_VISITOR
-#    sed -e "s/class qsqlVisitor(ParseTreeVisitor):/class qsqlVerboseVisitor(ParseTreeVisitor):/" -i ${VERBOSE_VISITOR}
-##    sed -e "s/.*def visit\([^(]*\)(.*/&\n        print('%s:%s' % ('\L\1\E', ctx.getAltNumber()))/" -i ${VERBOSE_VISITOR}
-#}
-
 generate_parser
 prepend_parser_import_statement
-#make_default_visitor_verbose
 
