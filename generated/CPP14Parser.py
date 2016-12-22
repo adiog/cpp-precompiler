@@ -6,7 +6,7 @@ from src.PrettyPrintParserRuleContext import PrettyPrintParserRuleContext
 from antlr4 import *
 from io import StringIO
 
-from src.substitute import REPLACE
+from src.coroutine_template import COROUTINE_TEMPLATE
 
 
 def serializedATN():
@@ -13996,7 +13996,7 @@ class CPP14Parser ( Parser ):
             COROUTINE_PARAMS = self.getDirtyText([1,0,0,1,1])
             COROUTINE_BODY = self.getDirtyText([2,0,1])
             COROUTINE_NAME = self.getDirtyText([1,0,0,0])
-            ret = re.sub(r'___COROUTINE_RETURN_TYPE___', COROUTINE_RETURN_TYPE, REPLACE)
+            ret = re.sub(r'___COROUTINE_RETURN_TYPE___', COROUTINE_RETURN_TYPE, COROUTINE_TEMPLATE)
             ret = re.sub(r'___COROUTINE_PARAMS___', COROUTINE_PARAMS, ret)
             ret = re.sub(r'___COROUTINE_BODY___', COROUTINE_BODY, ret)
             ret = re.sub(r'___COROUTINE_NAME___', COROUTINE_NAME, ret)

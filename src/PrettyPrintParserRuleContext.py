@@ -1,12 +1,10 @@
 # -*- coding: utf-8 -*-
 
 """
-This file is a part of quicksave project.
+This file is a part of cpp-precompiler project.
 Copyright (c) 2016 Aleksander Gajewski <adiog@brainfuck.pl>,
-                   Adam Morawski <poczta@adammorawski.pl>.
 """
 
-#from StringIO import StringIO
 from io import StringIO
 
 from antlr4 import ParserRuleContext
@@ -30,8 +28,8 @@ class PrettyPrintParserRuleContext(ParserRuleContext):
                 builder.write(' ')
             return builder.getvalue()
 
-    def getDirtyText(self, list_no):
-        if list_no:
-            return list(self.getChildren())[list_no[0]].getDirtyText(list_no[1:])
+    def getDirtyText(self, children_sequence):
+        if children_sequence:
+            return list(self.getChildren())[children_sequence[0]].getDirtyText(children_sequence[1:])
         else:
             return self.getText()

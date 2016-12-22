@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
 
 """
-This file is a part of quicksave project.
+This file is a part of cpp-precompiler project.
 Copyright (c) 2016 Aleksander Gajewski <adiog@brainfuck.pl>,
-                   Adam Morawski <poczta@adammorawski.pl>.
 """
 
-REPLACE='''
+COROUTINE_TEMPLATE = '''
 #include <mutex>
 #include <future>
 #include <thread>
@@ -23,10 +22,10 @@ REPLACE='''
     isReturned = true; \
     return;
 
-class CoRutClass {
+class CoroutineClass____COROUTINE_NAME___ {
 public:
-    CoRutClass() = default;
-    ~CoRutClass() {
+    CoroutineClass____COROUTINE_NAME___() = default;
+    ~CoroutineClass____COROUTINE_NAME___() {
         isTerminated = true;
         cv.notify_all();
         thr.join();
@@ -74,18 +73,3 @@ private:
     bool isTerminated = false;
 } ___COROUTINE_NAME___;
 '''
-
-
-
-#//co_yield 666;
-#CO_YIELD(666)
-#
-#
-#for (int i = 0; i < 5; ++i) {
-#//co_yield i * factor;
-#CO_YIELD(i*factor)
-#}
-
-#//co_return 5;
-#CO_RETURN(541)
-
