@@ -33,7 +33,6 @@ def precompile(source):
     tree = parser.translationunit()
     visitor = CPP14Visitor()
     visitor.visit(tree)
-    print(tree.getText())
     return re.sub(r'<EOF>', '', tree.getText())
 
 
