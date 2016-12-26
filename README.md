@@ -8,7 +8,7 @@ Yeah.. Somehow, I care and I am just curious how it will look like. And true, I 
 
 The types?
 ==========
-Yes, the types. I do not want to see microsoft mixing with types. I simply do not get why the concept of coroutine may be mixed with a function. Why the first paragraph of the proposal has to deal with the main function, while having the the concept of coroutine has nothing to do with regular function at all.
+Yes, the types. I do not want to see microsoft mixing with types. I simply do not get why the concept of coroutine may be mixed with a function. Why the first paragraph of the proposal has to deal with the main function, while having the concept of coroutine has nothing to do with regular function at all.
 
 Tell me more?
 =============
@@ -16,7 +16,7 @@ As far as I understand I want a coroutine definition to be translated to an obje
 
 Yes. Of course, did not MS do something like that?
 ==================================================
-It is hard to say. Maybe, but I have not understood their goal. As I see now, they have totally polluted the grammar (mixing function and coroutines), they forcing some assumptions on special member functions and so on. I truly want to see a simple object with boosted compilation support for some kind of context handling, proper multithreaded design - then I will be able to write, without any help, an obvious templated generator class wrapper that uses invoke() and resume(), for implementing begin(), end(), next(). I do not see yet why they consider blocking and non-blocking coroutines differently.
+It is hard to say. Maybe, but I have not understood their goal yet. As I see now, they have totally polluted the grammar (mixing function and coroutines), they forcing some assumptions on special member functions and so on. I truly want to see a simple object with boosted compilation support for some kind of context handling, proper multithreaded design - then I will be able to write, without any help, an obvious templated generator class wrapper that uses invoke() and resume(), for implementing begin(), end(), next(). I do not see yet why they consider blocking and non-blocking coroutines differently.
 
 What?
 =====
@@ -56,5 +56,5 @@ $ ./gcc-wrap.sh -std=c++14 -lpthread input.cc -o coroutine
 
 Ok, but what about co\_await?
 =============================
-I am glad you ask - I have not done anything with it yet. My aproach may be to greedy. I will work on that. If you want give me some hints I will be more than happy to hearing from you a piece of advice.
+I am glad you ask - I have not done anything with it yet. My aproach may be to greedy. I will work on that. If you want give me some hints I will be more than happy to hearing from you how to proceed with the matter.
 
