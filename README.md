@@ -49,7 +49,7 @@ int main()
 
 Hmm.. Sounds interesting.. What can I do to try it?
 ===================================================
-In general, it should work out of the box. Use python3 with virtualenv and antlr4-python3-runtime installed. Also I assume that you have already been using clang-format. There is no need to remind of it, right? I also did not figure out how to handle the preprocessor directives, so anything complex will definitely not work, but some basic stuff can be tested. Also do not be picky about the duplicated defines in the template. To run the basic samples, use:
+In general, it should work out of the box. Use python3 with virtualenv and antlr4-python3-runtime installed. Also I assume that you have already been using clang-format. There is no need to remind of it, right? I also did not figure out how to handle the preprocessor directives, so anything complex will definitely not work, but some basic stuff can be tested. To run the basic samples, use compiler wrapper:
 ```
 $ ./gcc-wrap.sh -std=c++14 -lpthread input.cc -o coroutine
 ```

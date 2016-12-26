@@ -5853,7 +5853,11 @@ class CPP14Parser ( Parser ):
             return self.getTypedRuleContext(CPP14Parser.BracedinitlistContext,0)
 
         def getText(self):
-            return 'CO_YIELD(%s)' % self.getDirtyText([1])
+            return '''
+            isRunning = false; \
+            promise.set_value(%s); \
+            cv.wait(unique_lock, [this](){return isTerminated || isRunning;}); \
+            if (isTerminated) return;''' % self.getDirtyText([1])
 
         def getRuleIndex(self):
             return CPP14Parser.RULE_yieldexpression
@@ -7640,7 +7644,11 @@ class CPP14Parser ( Parser ):
 
     class Co_jumpstatementContext(PrettyPrintParserRuleContext):
         def getText(self):
-            return 'CO_RETURN(%s)' % self.getDirtyText([1])
+            return '''
+            isRunning = false; \
+            promise.set_value(%s); \
+            isReturned = true; \
+            return;''' % self.getDirtyText([1])
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)

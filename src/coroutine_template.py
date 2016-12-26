@@ -10,18 +10,6 @@ COROUTINE_TEMPLATE = '''
 #include <future>
 #include <thread>
 
-#define CO_YIELD(value) \
-    isRunning = false; \
-    promise.set_value(value); \
-    cv.wait(unique_lock, [this](){return isTerminated || isRunning;}); \
-    if (isTerminated) return;
-
-#define CO_RETURN(value) \
-    isRunning = false; \
-    promise.set_value(value); \
-    isReturned = true; \
-    return;
-
 class CoroutineClass____COROUTINE_NAME___ {
 public:
     CoroutineClass____COROUTINE_NAME___() = default;

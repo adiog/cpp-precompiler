@@ -36,7 +36,7 @@ do
     then
         coarg=${arg/.cc/.co.cc}
         ./precompile.sh $arg $coarg
-        BASH_FINALLY "rm $coarg"
+        #BASH_FINALLY "rm $coarg"
     else
         coarg=$arg
     fi
