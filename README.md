@@ -1,14 +1,14 @@
 What The Fun
 ============
-This is extremely naive aproach to understand concept of coroutines.
+This is repository is an extremely naive aproach to learn and understand concept of coroutines.
 
-Read the openstd doc? Besides it is not even there.. who cares..
+Read the open-std n4628.pdf? Besides it is not even there.. who cares..
 ================================================================
 Yeah.. Somehow, I care and I am just curious how it will look like. And true, I have seen the proposal.. And I got the idea of resumable functions, but I have not the slightest idea, what is going on with types.
 
 The types?
 ==========
-Yes, the types. I do not want to see microsoft mixing with types. I simply do not get why the concept of coroutine may be mixed with a function. Why the first paragraph of the proposal has to deal with the main function, while having the concept of coroutine has nothing to do with regular function at all.
+Yes, the types. I do not want to see Microsoft messing with types. I simply do not get why the concept of coroutine may be mixed with a function. Why the first paragraph of the proposal has to deal with the main function, while having the concept of coroutine has nothing to do with regular function at all.
 
 Tell me more?
 =============
