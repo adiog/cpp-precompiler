@@ -56,5 +56,5 @@ $ ./gcc-wrap.sh -std=c++14 -lpthread input.cc -o coroutine
 
 Ok, but what about co\_await?
 =============================
-I am glad you ask - I have not done anything with it yet. My aproach may be to greedy. I will work on that. If you want give me some hints I will be more than happy to hearing from you how to proceed with the matter.
+I am glad you ask - I have not done anything with it yet. My aproach may be too greedy. I will work on that. If you want give me some hints I will be more than happy to hearing from you how to proceed with the matter.
 
