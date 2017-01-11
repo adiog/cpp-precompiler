@@ -14,7 +14,10 @@ class CoroutineClass____COROUTINE_NAME___ {
 public:
     CoroutineClass____COROUTINE_NAME___() = default;
     ~CoroutineClass____COROUTINE_NAME___() {
-        isTerminated = true;
+        {
+            std::unique_lock<std::mutex> unique_lock(mutex);
+            isTerminated = true;
+        }
         cv.notify_all();
         thr.join();
     }
