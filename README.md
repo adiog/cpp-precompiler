@@ -58,3 +58,12 @@ Ok, but what about co\_await?
 =============================
 I am glad you ask - I have not done anything with it yet. My aproach may be too greedy. I will work on that. If you want give me some hints I will be more than happy to hearing from you how to proceed with the matter.
 
+EDIT
+----
+Still do not get the idea as a simple concept: under any circumstances, as I look at the code as a simple pieces that allows me construct more complex things, I will expect that invoke and resume will return the exact value in a blocking way. There is already a simple concept of awaitable - it is enough to put
+```
+auto value = std::async([&](){return coroutine.resume();});
+...
+use(value.get());
+```
+Here, the caller is responsible of storing/queueing futures. There is no need of introducing an additional mechanism of communication between caller and callee coroutine. This also shows clearly that under these terms coroutine could be run precisely in a callers thread (yeah, I have never claimed that my implementation is the best or even acceptable - there might be a good reason for 'restore-context-state-machine-slash-goto-mechanism'). I do not see any gain of putting artificial sleeps in a new way..
