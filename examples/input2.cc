@@ -20,8 +20,8 @@ int corut2(int factor) {
 
 int main()
 {
-    std::cout << corut.start(2) << std::endl;
-    std::cout << corut2.start(2) << std::endl;
+    std::cout << corut.invoke(2) << std::endl;
+    std::cout << corut2.invoke(2) << std::endl;
     std::cout << corut.resume() << std::endl;
     std::cout << corut2.resume() << std::endl;
     std::cout << corut.resume() << std::endl;

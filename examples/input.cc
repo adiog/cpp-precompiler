@@ -12,7 +12,7 @@ int coroutine(int factor) {
 
 int main()
 {
-    std::cout << coroutine.start(2) << std::endl;
+    std::cout << coroutine.invoke(2) << std::endl;
     std::cout << coroutine.resume() << std::endl;
     std::cout << coroutine.resume() << std::endl;
     return 0;

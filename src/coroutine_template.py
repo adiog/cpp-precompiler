@@ -30,7 +30,7 @@ public:
     }
 
     template<typename... Args>
-    ReturnType start(Args... args) {
+    ReturnType invoke(Args... args) {
         if (isStarted) {
             throw std::runtime_error("");
         } else {

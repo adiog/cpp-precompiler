@@ -35,7 +35,7 @@ do
     if [[ $arg == *.cc ]];
     then
         coarg=${arg/.cc/.co.cc}
-        ./precompile.sh $arg $coarg
+        ${WORKSPACE}/precompile.sh $arg $coarg
         #BASH_FINALLY "rm $coarg"
     else
         coarg=$arg

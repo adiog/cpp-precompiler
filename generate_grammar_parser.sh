@@ -1,7 +1,5 @@
 #!/bin/bash
 
-WORKSPACE=`pwd`
-
 function generate_parser()
 {
     java -jar ${WORKSPACE}/lib/antlr-4.6-complete.jar \

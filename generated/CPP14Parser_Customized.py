@@ -5857,7 +5857,7 @@ class CPP14Parser ( Parser ):
             isRunning = false; \
             promise.set_value(%s); \
             cv.wait(unique_lock, [this](){return isTerminated || isRunning;}); \
-            if (isTerminated) return;''' % self.getDirtyText([1])
+            if (isTerminated) return''' % self.getDirtyText([1])
 
         def getRuleIndex(self):
             return CPP14Parser.RULE_yieldexpression

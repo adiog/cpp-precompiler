@@ -34,6 +34,6 @@ OUTPUT=$2
 save_directives=`BASH_MKTEMP`
 temp_output=`BASH_MKTEMP`
 sed -n -e "/#.*/p" $INPUT > $save_directives
-python3 src/precompiler.py $INPUT $temp_output
+python3 ${WORKSPACE}/src/precompiler.py $INPUT $temp_output
 cat $save_directives $temp_output > $OUTPUT
 clang-format -i $OUTPUT

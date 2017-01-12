@@ -4,6 +4,7 @@
 This file is a part of cpp-precompiler project.
 Copyright (c) 2016 Aleksander Gajewski <adiog@brainfuck.pl>,
 """
+
 import re
 import sys
 
