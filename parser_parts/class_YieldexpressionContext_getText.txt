@@ -1,0 +1,6 @@
+        def getText(self):
+            return '''
+            isRunning = false; \
+            promise.set_value(%s); \
+            cv.wait(unique_lock, [this](){return isTerminated || isRunning;}); \
+            if (isTerminated) return''' % self.getDirtyText([1])

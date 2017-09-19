@@ -11,7 +11,7 @@ import sys
 from antlr4 import InputStream
 
 from generated.CPP14Lexer import CPP14Lexer, CommonTokenStream
-from generated.CPP14Parser_Customized import CPP14Parser
+from generated.CPP14Parser_Custom import CPP14Parser
 from generated.CPP14Visitor import CPP14Visitor
 
 

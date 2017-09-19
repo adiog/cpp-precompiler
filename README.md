@@ -67,3 +67,37 @@ auto value = std::async([&](){return coroutine.resume();});
 use(value.get());
 ```
 Here, the caller is responsible of storing/queueing futures. There is no need of introducing an additional mechanism of communication between caller and callee coroutine. This also shows clearly that under these terms coroutine could be run precisely in a callers thread (yeah, I have never claimed that my implementation is the best or even acceptable - there might be a good reason for 'restore-context-state-machine-slash-goto-mechanism'). I do not see any gain of putting artificial sleeps in a new way..
+
+UPDATE
+------
+Some experiments with generator wrapper have been made. E.g. examples/fib_generator.cc:
+```
+#include <iostream>
+
+int fibonacci(int f0, int f1) {
+    while(true) {
+       co_yield f0;
+       f0 += f1;
+       std::swap(f0, f1);
+    }
+}
+
+int main()
+{
+    int index = 0;
+    for(auto fib : generator(fibonacci, 1, 1)) {
+        std::cout << fib;
+        if (index++ == 10) {
+            break;
+        } else {
+            std::cout << ", ";
+        }
+    }
+    std::cout << std::endl;
+    return 0;
+}
+```
+The output is as expected:
+```
+1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89
+```

@@ -347,21 +347,23 @@ conditionalexpression
 	| logicalorexpression '?' expression ':' assignmentexpression
 ;
 
-assignmentexpression
-:
-	conditionalexpression
-	| logicalorexpression assignmentoperator initializerclause
-	| throwexpression
-;
-
 co_assignmentexpression
-    : assignmentexpression
-	| yieldexpression
+: 
+  assignmentexpression
+  | yieldexpression
 ;
 
 yieldexpression
     : CoYield assignmentexpression
     | CoYield bracedinitlist
+;
+
+
+assignmentexpression
+:
+	conditionalexpression
+	| logicalorexpression assignmentoperator initializerclause
+	| throwexpression
 ;
 
 assignmentoperator
@@ -379,16 +381,16 @@ assignmentoperator
 	| '|='
 ;
 
+co_expression
+:
+	co_assignmentexpression
+	| co_expression ',' co_assignmentexpression
+;
+
 expression
 :
 	assignmentexpression
 	| expression ',' assignmentexpression
-;
-
-co_expression
-:
-    co_assignmentexpression
-    | co_expression ',' co_assignmentexpression
 ;
 
 constantexpression
@@ -396,6 +398,18 @@ constantexpression
 	conditionalexpression
 ;
 /*Statements*/
+co_statement
+:
+	labeledstatement
+	| attributespecifierseq? co_expressionstatement
+	| attributespecifierseq? co_compoundstatement
+	| attributespecifierseq? co_selectionstatement
+	| attributespecifierseq? co_iterationstatement
+	| attributespecifierseq? co_jumpstatement
+	| declarationstatement
+	| attributespecifierseq? tryblock
+;
+
 statement
 :
 	labeledstatement
@@ -408,12 +422,6 @@ statement
 	| attributespecifierseq? tryblock
 ;
 
-co_statement
-: statement
-| co_expressionstatement
-| co_jumpstatement
-;
-
 labeledstatement
 :
 	attributespecifierseq? Identifier ':' statement
@@ -421,14 +429,14 @@ labeledstatement
 	| attributespecifierseq? Default ':' statement
 ;
 
+co_expressionstatement
+:
+	co_expression? ';'
+;
+
 expressionstatement
 :
 	expression? ';'
-;
-
-co_expressionstatement
-:
-    co_expression? ';'
 ;
 
 compoundstatement
@@ -438,7 +446,7 @@ compoundstatement
 
 co_compoundstatement
 :
-    '{' co_statementseq? '}'
+	'{' co_statementseq? '}'
 ;
 
 statementseq
@@ -448,8 +456,16 @@ statementseq
 ;
 
 co_statementseq
-: co_statement
-| co_statementseq co_statement
+:
+	co_statement
+	| co_statementseq co_statement
+;
+
+co_selectionstatement
+:
+	If '(' condition ')' co_statement
+	| If '(' condition ')' co_statement Else co_statement
+	| Switch '(' condition ')' co_statement
 ;
 
 selectionstatement
@@ -459,11 +475,26 @@ selectionstatement
 	| Switch '(' condition ')' statement
 ;
 
+co_condition
+:
+	co_expression
+	| attributespecifierseq? declspecifierseq declarator '=' initializerclause
+	| attributespecifierseq? declspecifierseq declarator bracedinitlist
+;
+
 condition
 :
 	expression
 	| attributespecifierseq? declspecifierseq declarator '=' initializerclause
 	| attributespecifierseq? declspecifierseq declarator bracedinitlist
+;
+
+co_iterationstatement
+:
+	While '(' co_condition ')' co_statement
+	| Do statement While '(' co_expression ')' ';'
+	| For '(' forinitstatement condition? ';' co_expression? ')' co_statement
+	| For '(' forrangedeclaration ':' forrangeinitializer ')' co_statement
 ;
 
 iterationstatement
@@ -491,6 +522,12 @@ forrangeinitializer
 	| bracedinitlist
 ;
 
+co_jumpstatement
+    : CoReturn expression? ';'
+    | CoReturn bracedinitlist ';'
+    | jumpstatement
+;
+
 jumpstatement
 :
 	Break ';'
@@ -498,11 +535,6 @@ jumpstatement
 	| Return expression? ';'
 	| Return bracedinitlist ';'
 	| Goto Identifier ';'
-;
-co_jumpstatement
-    : CoReturn expression? ';'
-    | CoReturn bracedinitlist ';'
-    | jumpstatement
 ;
 
 declarationstatement

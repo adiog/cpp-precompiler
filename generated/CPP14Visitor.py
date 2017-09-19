@@ -1,7 +1,7 @@
-# Generated from /home/adiog/workspace/cpp-precompiler/grammar/CPP14.g4 by ANTLR 4.6
+# Generated from CPP14.g4 by ANTLR 4.6
 from antlr4 import *
 if __name__ is not None and "." in __name__:
-    from generated.CPP14Parser_Customized import CPP14Parser
+    from generated.CPP14Parser_Custom import CPP14Parser
 else:
     from CPP14Parser import CPP14Parser
 
@@ -214,11 +214,6 @@ class CPP14Visitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by CPP14Parser#assignmentexpression.
-    def visitAssignmentexpression(self, ctx:CPP14Parser.AssignmentexpressionContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by CPP14Parser#co_assignmentexpression.
     def visitCo_assignmentexpression(self, ctx:CPP14Parser.Co_assignmentexpressionContext):
         return self.visitChildren(ctx)
@@ -229,13 +224,13 @@ class CPP14Visitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by CPP14Parser#assignmentoperator.
-    def visitAssignmentoperator(self, ctx:CPP14Parser.AssignmentoperatorContext):
+    # Visit a parse tree produced by CPP14Parser#assignmentexpression.
+    def visitAssignmentexpression(self, ctx:CPP14Parser.AssignmentexpressionContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by CPP14Parser#expression.
-    def visitExpression(self, ctx:CPP14Parser.ExpressionContext):
+    # Visit a parse tree produced by CPP14Parser#assignmentoperator.
+    def visitAssignmentoperator(self, ctx:CPP14Parser.AssignmentoperatorContext):
         return self.visitChildren(ctx)
 
 
@@ -244,13 +239,13 @@ class CPP14Visitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by CPP14Parser#constantexpression.
-    def visitConstantexpression(self, ctx:CPP14Parser.ConstantexpressionContext):
+    # Visit a parse tree produced by CPP14Parser#expression.
+    def visitExpression(self, ctx:CPP14Parser.ExpressionContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by CPP14Parser#statement.
-    def visitStatement(self, ctx:CPP14Parser.StatementContext):
+    # Visit a parse tree produced by CPP14Parser#constantexpression.
+    def visitConstantexpression(self, ctx:CPP14Parser.ConstantexpressionContext):
         return self.visitChildren(ctx)
 
 
@@ -259,18 +254,23 @@ class CPP14Visitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by CPP14Parser#statement.
+    def visitStatement(self, ctx:CPP14Parser.StatementContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by CPP14Parser#labeledstatement.
     def visitLabeledstatement(self, ctx:CPP14Parser.LabeledstatementContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by CPP14Parser#expressionstatement.
-    def visitExpressionstatement(self, ctx:CPP14Parser.ExpressionstatementContext):
+    # Visit a parse tree produced by CPP14Parser#co_expressionstatement.
+    def visitCo_expressionstatement(self, ctx:CPP14Parser.Co_expressionstatementContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by CPP14Parser#co_expressionstatement.
-    def visitCo_expressionstatement(self, ctx:CPP14Parser.Co_expressionstatementContext):
+    # Visit a parse tree produced by CPP14Parser#expressionstatement.
+    def visitExpressionstatement(self, ctx:CPP14Parser.ExpressionstatementContext):
         return self.visitChildren(ctx)
 
 
@@ -294,13 +294,28 @@ class CPP14Visitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by CPP14Parser#co_selectionstatement.
+    def visitCo_selectionstatement(self, ctx:CPP14Parser.Co_selectionstatementContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by CPP14Parser#selectionstatement.
     def visitSelectionstatement(self, ctx:CPP14Parser.SelectionstatementContext):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by CPP14Parser#co_condition.
+    def visitCo_condition(self, ctx:CPP14Parser.Co_conditionContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by CPP14Parser#condition.
     def visitCondition(self, ctx:CPP14Parser.ConditionContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by CPP14Parser#co_iterationstatement.
+    def visitCo_iterationstatement(self, ctx:CPP14Parser.Co_iterationstatementContext):
         return self.visitChildren(ctx)
 
 
@@ -324,13 +339,13 @@ class CPP14Visitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by CPP14Parser#jumpstatement.
-    def visitJumpstatement(self, ctx:CPP14Parser.JumpstatementContext):
+    # Visit a parse tree produced by CPP14Parser#co_jumpstatement.
+    def visitCo_jumpstatement(self, ctx:CPP14Parser.Co_jumpstatementContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by CPP14Parser#co_jumpstatement.
-    def visitCo_jumpstatement(self, ctx:CPP14Parser.Co_jumpstatementContext):
+    # Visit a parse tree produced by CPP14Parser#jumpstatement.
+    def visitJumpstatement(self, ctx:CPP14Parser.JumpstatementContext):
         return self.visitChildren(ctx)
 
 

@@ -1,4 +1,4 @@
-# Generated from /home/adiog/workspace/cpp-precompiler/grammar/CPP14.g4 by ANTLR 4.6
+# Generated from CPP14.g4 by ANTLR 4.6
 from antlr4 import *
 from io import StringIO
 

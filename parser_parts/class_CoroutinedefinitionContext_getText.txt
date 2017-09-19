@@ -1,0 +1,10 @@
+        def getText(self):
+            COROUTINE_RETURN_TYPE = self.getDirtyText([0])
+            COROUTINE_PARAMS = self.getDirtyText([1,0,0,1,1])
+            COROUTINE_BODY = self.getDirtyText([2,0,1])
+            COROUTINE_NAME = self.getDirtyText([1,0,0,0])
+            ret = re.sub(r'___COROUTINE_RETURN_TYPE___', COROUTINE_RETURN_TYPE, COROUTINE_TEMPLATE)
+            ret = re.sub(r'___COROUTINE_PARAMS___', COROUTINE_PARAMS, ret)
+            ret = re.sub(r'___COROUTINE_BODY___', COROUTINE_BODY, ret)
+            ret = re.sub(r'___COROUTINE_NAME___', COROUTINE_NAME, ret)
+            return ret

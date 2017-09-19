@@ -1,7 +1,7 @@
-# Generated from /home/adiog/workspace/cpp-precompiler/grammar/CPP14.g4 by ANTLR 4.6
+# Generated from CPP14.g4 by ANTLR 4.6
 from antlr4 import *
 if __name__ is not None and "." in __name__:
-    from generated.CPP14Parser_Customized import CPP14Parser
+    from generated.CPP14Parser_Custom import CPP14Parser
 else:
     from CPP14Parser import CPP14Parser
 
@@ -377,15 +377,6 @@ class CPP14Listener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by CPP14Parser#assignmentexpression.
-    def enterAssignmentexpression(self, ctx:CPP14Parser.AssignmentexpressionContext):
-        pass
-
-    # Exit a parse tree produced by CPP14Parser#assignmentexpression.
-    def exitAssignmentexpression(self, ctx:CPP14Parser.AssignmentexpressionContext):
-        pass
-
-
     # Enter a parse tree produced by CPP14Parser#co_assignmentexpression.
     def enterCo_assignmentexpression(self, ctx:CPP14Parser.Co_assignmentexpressionContext):
         pass
@@ -404,21 +395,21 @@ class CPP14Listener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by CPP14Parser#assignmentexpression.
+    def enterAssignmentexpression(self, ctx:CPP14Parser.AssignmentexpressionContext):
+        pass
+
+    # Exit a parse tree produced by CPP14Parser#assignmentexpression.
+    def exitAssignmentexpression(self, ctx:CPP14Parser.AssignmentexpressionContext):
+        pass
+
+
     # Enter a parse tree produced by CPP14Parser#assignmentoperator.
     def enterAssignmentoperator(self, ctx:CPP14Parser.AssignmentoperatorContext):
         pass
 
     # Exit a parse tree produced by CPP14Parser#assignmentoperator.
     def exitAssignmentoperator(self, ctx:CPP14Parser.AssignmentoperatorContext):
-        pass
-
-
-    # Enter a parse tree produced by CPP14Parser#expression.
-    def enterExpression(self, ctx:CPP14Parser.ExpressionContext):
-        pass
-
-    # Exit a parse tree produced by CPP14Parser#expression.
-    def exitExpression(self, ctx:CPP14Parser.ExpressionContext):
         pass
 
 
@@ -431,21 +422,21 @@ class CPP14Listener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by CPP14Parser#expression.
+    def enterExpression(self, ctx:CPP14Parser.ExpressionContext):
+        pass
+
+    # Exit a parse tree produced by CPP14Parser#expression.
+    def exitExpression(self, ctx:CPP14Parser.ExpressionContext):
+        pass
+
+
     # Enter a parse tree produced by CPP14Parser#constantexpression.
     def enterConstantexpression(self, ctx:CPP14Parser.ConstantexpressionContext):
         pass
 
     # Exit a parse tree produced by CPP14Parser#constantexpression.
     def exitConstantexpression(self, ctx:CPP14Parser.ConstantexpressionContext):
-        pass
-
-
-    # Enter a parse tree produced by CPP14Parser#statement.
-    def enterStatement(self, ctx:CPP14Parser.StatementContext):
-        pass
-
-    # Exit a parse tree produced by CPP14Parser#statement.
-    def exitStatement(self, ctx:CPP14Parser.StatementContext):
         pass
 
 
@@ -458,6 +449,15 @@ class CPP14Listener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by CPP14Parser#statement.
+    def enterStatement(self, ctx:CPP14Parser.StatementContext):
+        pass
+
+    # Exit a parse tree produced by CPP14Parser#statement.
+    def exitStatement(self, ctx:CPP14Parser.StatementContext):
+        pass
+
+
     # Enter a parse tree produced by CPP14Parser#labeledstatement.
     def enterLabeledstatement(self, ctx:CPP14Parser.LabeledstatementContext):
         pass
@@ -467,21 +467,21 @@ class CPP14Listener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by CPP14Parser#expressionstatement.
-    def enterExpressionstatement(self, ctx:CPP14Parser.ExpressionstatementContext):
-        pass
-
-    # Exit a parse tree produced by CPP14Parser#expressionstatement.
-    def exitExpressionstatement(self, ctx:CPP14Parser.ExpressionstatementContext):
-        pass
-
-
     # Enter a parse tree produced by CPP14Parser#co_expressionstatement.
     def enterCo_expressionstatement(self, ctx:CPP14Parser.Co_expressionstatementContext):
         pass
 
     # Exit a parse tree produced by CPP14Parser#co_expressionstatement.
     def exitCo_expressionstatement(self, ctx:CPP14Parser.Co_expressionstatementContext):
+        pass
+
+
+    # Enter a parse tree produced by CPP14Parser#expressionstatement.
+    def enterExpressionstatement(self, ctx:CPP14Parser.ExpressionstatementContext):
+        pass
+
+    # Exit a parse tree produced by CPP14Parser#expressionstatement.
+    def exitExpressionstatement(self, ctx:CPP14Parser.ExpressionstatementContext):
         pass
 
 
@@ -521,6 +521,15 @@ class CPP14Listener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by CPP14Parser#co_selectionstatement.
+    def enterCo_selectionstatement(self, ctx:CPP14Parser.Co_selectionstatementContext):
+        pass
+
+    # Exit a parse tree produced by CPP14Parser#co_selectionstatement.
+    def exitCo_selectionstatement(self, ctx:CPP14Parser.Co_selectionstatementContext):
+        pass
+
+
     # Enter a parse tree produced by CPP14Parser#selectionstatement.
     def enterSelectionstatement(self, ctx:CPP14Parser.SelectionstatementContext):
         pass
@@ -530,12 +539,30 @@ class CPP14Listener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by CPP14Parser#co_condition.
+    def enterCo_condition(self, ctx:CPP14Parser.Co_conditionContext):
+        pass
+
+    # Exit a parse tree produced by CPP14Parser#co_condition.
+    def exitCo_condition(self, ctx:CPP14Parser.Co_conditionContext):
+        pass
+
+
     # Enter a parse tree produced by CPP14Parser#condition.
     def enterCondition(self, ctx:CPP14Parser.ConditionContext):
         pass
 
     # Exit a parse tree produced by CPP14Parser#condition.
     def exitCondition(self, ctx:CPP14Parser.ConditionContext):
+        pass
+
+
+    # Enter a parse tree produced by CPP14Parser#co_iterationstatement.
+    def enterCo_iterationstatement(self, ctx:CPP14Parser.Co_iterationstatementContext):
+        pass
+
+    # Exit a parse tree produced by CPP14Parser#co_iterationstatement.
+    def exitCo_iterationstatement(self, ctx:CPP14Parser.Co_iterationstatementContext):
         pass
 
 
@@ -575,21 +602,21 @@ class CPP14Listener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by CPP14Parser#jumpstatement.
-    def enterJumpstatement(self, ctx:CPP14Parser.JumpstatementContext):
-        pass
-
-    # Exit a parse tree produced by CPP14Parser#jumpstatement.
-    def exitJumpstatement(self, ctx:CPP14Parser.JumpstatementContext):
-        pass
-
-
     # Enter a parse tree produced by CPP14Parser#co_jumpstatement.
     def enterCo_jumpstatement(self, ctx:CPP14Parser.Co_jumpstatementContext):
         pass
 
     # Exit a parse tree produced by CPP14Parser#co_jumpstatement.
     def exitCo_jumpstatement(self, ctx:CPP14Parser.Co_jumpstatementContext):
+        pass
+
+
+    # Enter a parse tree produced by CPP14Parser#jumpstatement.
+    def enterJumpstatement(self, ctx:CPP14Parser.JumpstatementContext):
+        pass
+
+    # Exit a parse tree produced by CPP14Parser#jumpstatement.
+    def exitJumpstatement(self, ctx:CPP14Parser.JumpstatementContext):
         pass
 
 
