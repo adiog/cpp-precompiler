@@ -28,6 +28,7 @@ function BASH_MKTEMP_DIR() {
 }
 # }}}
 
+CXX=${CXX:-g++}
 WRAPPED_ARGS=""
 
 for arg in $*;
@@ -35,7 +36,7 @@ do
     if [[ $arg == *.cc ]];
     then
         coarg=${arg/.cc/.co.cc}
-        ${WORKSPACE}/precompile.sh $arg $coarg
+        ./precompile.sh $arg $coarg
         #BASH_FINALLY "rm $coarg"
     else
         coarg=$arg
@@ -65,4 +66,5 @@ then
     exit 1
 fi
 
-g++ $WRAPPED_ARGS
+$CXX $WRAPPED_ARGS
+

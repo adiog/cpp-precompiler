@@ -31,9 +31,16 @@ function BASH_MKTEMP_DIR() {
 INPUT=$1
 OUTPUT=$2
 
+if [[ -z "${VIRTUAL_ENV}" ]];
+then
+    . init_venv.sh
+fi
+
+. venv/bin/activate
+
 save_directives=`BASH_MKTEMP`
 temp_output=`BASH_MKTEMP`
 sed -n -e "/#.*/p" $INPUT > $save_directives
-python3 ${WORKSPACE}/src/precompiler.py $INPUT $temp_output
+PYTHONPATH=`pwd`:${PYTHONPATH} python3 ./src/precompiler.py $INPUT $temp_output
 cat $save_directives $temp_output > $OUTPUT
 clang-format -i $OUTPUT

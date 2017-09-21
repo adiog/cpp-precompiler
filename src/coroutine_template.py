@@ -65,6 +65,7 @@ public:
   Generator(CoroutineClass &coroutine, TupledArgs &&args)
       : coroutine(coroutine), args(std::move(args)) {}
   Iterator<CoroutineClass, TupledArgs> begin() {
+    coroutine.reset();
     return Iterator<CoroutineClass, TupledArgs>{coroutine, args};
   }
   Iterator<CoroutineClass, TupledArgs> end() {
@@ -86,12 +87,30 @@ generator(CoroutineClass &coroutine, Args... args) {
 #endif
 
 
-class CoroutineClass____COROUTINE_NAME___ {
+thread_local class CoroutineClass____COROUTINE_NAME___ {
 public:
     using ReturnType = ___COROUTINE_RETURN_TYPE___;
 
     CoroutineClass____COROUTINE_NAME___() = default;
     ~CoroutineClass____COROUTINE_NAME___() {
+        finalize();
+    }
+
+    void reset() {
+        if (isStartedFlag) {
+            finalize();
+            initialize();
+        }
+    }
+
+    void initialize() {
+        isStartedFlag = false;
+        isRunning = false;
+        isReturned = false;
+        isTerminated = false;
+    }
+
+    void finalize() {
         {
             std::unique_lock<std::mutex> unique_lock(mutex);
             isTerminated = true;
@@ -110,12 +129,17 @@ public:
     template<typename... Args>
     ReturnType invoke(Args... args) {
         if (isStartedFlag) {
-            throw std::runtime_error("");
-        } else {
-            isStartedFlag = true;
-            thr = std::thread{[&]() { this->corut_thread(args...); }};
-            return resume();
+            reset();
         }
+        
+        isStartedFlag = true;
+        thr = std::thread{[&]() { this->corut_thread(args...); }};
+        return resume();
+    }
+    
+    template<typename... Args>
+    ReturnType operator()(Args... args) {
+        return invoke(args...);
     }
 
     ReturnType resume() {

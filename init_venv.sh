@@ -17,6 +17,11 @@ function check_if_failed()
     fi
 }
 
+if ! which clang-format;
+then
+    sudo apt install clang-format
+fi
+
 check virtualenv
 check python3
 check pip3
